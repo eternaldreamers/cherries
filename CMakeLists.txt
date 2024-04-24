@@ -10,4 +10,10 @@ project(${PROJECT_NAME}
     LANGUAGES C
 )
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
+
+find_package(LibSSH REQUIRED)
+
 add_executable(${PROJECT_NAME} src/main.c)
+
+target_link_libraries(${PROJECT_NAME} LIBSSH::LIBSSH)
